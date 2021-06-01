@@ -1,0 +1,37 @@
+
+## Importing Package
+```{r}
+library(ggplot2)
+```
+
+## Data
+```{r}
+models = c("Xception_freeze","Xception_fineTuning", "Resnet50_freeze","Resnet50_fineTuning", "VGG16_freeze","VGG16_fineTuning", "InceptionV3_freeze", "InceptionV3_fineTuning")
+data_adam = c(98.15, 97.70, 98.90, 99.20, 93.50, 95.00, 97.90, 97.65)
+data_rms_prop = c(96.50, 97.00, 97.80, 99.00, 94.15, 95.00, 95.95, 97.00)
+
+df_models = data.frame(models = models, data_adam = data_adam, data_rms_prop = data_rms_prop)
+```
+
+```{r}
+df_models
+```
+
+
+```{r}
+ggplot(data = df_models, aes(x=models, y=data_adam)) +
+  geom_bar(stat="identity", fill="steelblue")+
+  geom_text(aes(label=data_adam), vjust=-0.3, size=3.5)+
+  theme_minimal() + coord_flip()
+```
+
+
+
+```{r}
+ggplot(data = df_models, aes(x=models, y=data_rms_prop)) +
+  geom_bar(stat="identity", fill="steelblue")+
+  geom_text(aes(label=data_rms_prop), vjust=-0.3, size=3.5)+
+  theme_minimal() + coord_flip()
+```
+
+#### I will be using inceptionV3 model for further predictions since this model gives good accuarcy with least amount of time to be taken for processing this model.

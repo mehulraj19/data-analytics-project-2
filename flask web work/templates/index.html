@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Face-Mask Detection
+        </title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&display=swap" rel="stylesheet">
+    </head>
+    <style>
+        body{
+            margin: 100px;
+            font-size: large;
+            background-color: rgba(196, 71, 196, 0.856);
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        h1{
+            color: white;
+        }
+        p{  
+            background-color: turquoise;
+            font-size: 25px;
+        }
+        form{
+            font-size: 22px;
+        }
+        form [type='file']{
+            font-size: 25px;
+            margin-left: 27%;
+        }
+        form [type='submit']{
+            font-size: 18px;
+        }
+        .box-main{
+            background-color: rgba(96, 138, 194, 0.479);
+            text-align: center;
+            color: white;
+            width: 600px;
+            height: 350px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+    </style>
+    <body>
+        <center>
+            <h1>Face Mask Detection</h1>
+            <br><br><br>
+    
+            <div class="box-main"><br><br><br>
+                <form method="POST" action="{{url_for('resultForm')}}" enctype="multipart/form-data">
+                    <!-- image input -->
+                    <input type="file" name='image' class='btn'>
+                    <br><br><br>
+                    <!-- submit -->
+                    <input type="submit" class='btn'>
+                </form>
+            </div>
+        </center>
+    </body>
+</html>
